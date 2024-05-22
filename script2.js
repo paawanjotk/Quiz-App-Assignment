@@ -3,7 +3,7 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const progressText = document.getElementById('progressText');
 const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
-
+console.log("hello");
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -11,6 +11,22 @@ let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [
+    {
+        question:'Who is the prime minister of India?',
+        choice1: 'Narendra Modi',
+        choice2: 'Rahul Gandhi',
+        choice3: 'Amit Shah',
+        choice4: 'Manmohan Singh',
+        answer: 1,
+    },
+    {
+        question: 'What species are you?',
+        choice1: 'Bird',
+        choice2: 'Human',
+        choice3: 'Dog',
+        choice4: 'Paracetamol',
+        answer: 2,
+    },
     {
         question: 'Which HTML tag is used to define an inline style?',
         choice1: '<script>',
@@ -30,22 +46,22 @@ let questions = [
     {
         question: 'Which of the following is the correct way to comment in HTML?',
         choice1: '// Comment',
-        choice2: '<!-- Comment -->',
+        choice2: '<-- Comment -->',
         choice3: '/* Comment */',
         choice4: '<! Comment>',
         answer: 2,
     }
 ];
-
+console.log(questions);
 const maximum = questions.length;
-
+console.log(maximum);
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [questions];
+    availableQuestions = questions;
     getNewQuestion();
 };
-
+console.log(availableQuestions);
 getNewQuestion = () => {
     if (availableQuestions.length === 0 || questionCounter >= maximum) {
         localStorage.setItem('mostRecentScore', score*10);
